@@ -13,16 +13,23 @@ public class User {
 
     private String name;
     private String userName;
+    private String password;
     private String email;
     private String role;
 
     public User() {
     }
 
-    public User(int id, String name, String userName, String email, String role) {
+//    public User(String userName, String password){
+//        this.userName = userName;
+//        this.password = password;
+//    }
+
+    public User(int id, String name, String userName, String password, String email, String role) {
         this.id = id;
         this.name = name;
         this.userName = userName;
+        this.password = password;
         this.email = email;
         this.role = role;
     }
@@ -49,6 +56,14 @@ public class User {
 
     public void setUserName(String userName) {
         this.userName = userName;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public String getEmail() {
