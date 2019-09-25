@@ -12,7 +12,9 @@ import java.io.Serializable;
 
 
 @Component
-public class JwtAuthEntryPoint implements AuthenticationEntryPoint {
+public class JwtAuthEntryPoint implements AuthenticationEntryPoint, Serializable {
+
+    private static final long serialVersionUID = -7858869558953243875L;
 
     // rejects all unauthorized requests and send error code 401
     @Override

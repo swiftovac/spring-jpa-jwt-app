@@ -12,7 +12,7 @@ public class User {
     private int id;
 
     private String name;
-    private String userName;
+    private String username;
     private String password;
     private String email;
     private String role;
@@ -25,10 +25,10 @@ public class User {
 //        this.password = password;
 //    }
 
-    public User(int id, String name, String userName, String password, String email, String role) {
+    public User(int id, String name, String username, String password, String email, String role) {
         this.id = id;
         this.name = name;
-        this.userName = userName;
+        this.username = username;
         this.password = password;
         this.email = email;
         this.role = role;
@@ -50,12 +50,12 @@ public class User {
         this.name = name;
     }
 
-    public String getUserName() {
-        return userName;
+    public String getUsername() {
+        return username;
     }
 
-    public void setUserName(String userName) {
-        this.userName = userName;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public String getPassword() {

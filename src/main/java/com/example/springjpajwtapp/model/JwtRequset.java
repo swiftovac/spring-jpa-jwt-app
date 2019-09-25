@@ -1,8 +1,12 @@
 package com.example.springjpajwtapp.model;
 
 
+import java.io.Serializable;
+
 // we need this class to store username and password from client
-public class JwtRequset {
+public class JwtRequset implements Serializable {
+
+    private static final long serialVersionUID = 5926468583005150707L;
 
     private String username;
     private String password;

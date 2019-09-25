@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -19,25 +18,25 @@ public class JwtUserDetailsService implements UserDetailsService {
     UserRepository userRepository;
 
     @Autowired
-    private BCryptPasswordEncoder bcryptEncoder;
+    private PasswordEncoder bcryptEncoder;
 
 
     @Override
     public UserDetails loadUserByUsername(String s) throws UsernameNotFoundException {
 
-        User user = userRepository.findUserByUsername(s);
+        User user = userRepository.findByUsername(s);
         if(user == null){
             throw new UsernameNotFoundException("User not found with username " + s);
 
         }
-        return new org.springframework.security.core.userdetails.User(user.getUserName(), user.getPassword(),
+        return new org.springframework.security.core.userdetails.User(user.getUsername(), user.getPassword(),
             new ArrayList<>());
 
     }
 
     public User save(User user) {
         User newUser = new User();
-        newUser.setUserName(user.getUserName());
+        newUser.setUsername(user.getUsername());
         newUser.setPassword(bcryptEncoder.encode(user.getPassword()));
         newUser.setEmail(user.getEmail());
         newUser.setRole(user.getRole());
